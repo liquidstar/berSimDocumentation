@@ -9,7 +9,17 @@
 \newcommand{\shade}{\cellcolor[HTML]{FF8282}}
 
 % - - - - - - - - - - - - - - - - - - - -
-% [New Macro Name]
+% Formula symbol definition ENVIRONMENT
 %
+\newenvironment{mathDef}
+{\begin{center}\begin{tabular}{r l}}
+{\end{tabular}\end{center}}
+
+% - - - - - - - - - - - - - - - - - - - -
+% Formula symbol definition COMMAND
+%
+\newcommand{\mathSymb}[2]{
+	\(#1\) :& #2 \\
+}
 
 
