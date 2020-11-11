@@ -1,0 +1,89 @@
+%% Creator: Inkscape 1.0.1 (3bc2e813f5, 2020-09-07), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Graphics/LiteratureReview/digitalMod.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{595.27559055bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.47619048)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Graphics/LiteratureReview/digitalMod.pdf}}%
+    \put(0.10420129,0.27434917){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}S/P\\1:N\end{tabular}}}}%
+    \put(0.60479004,0.36604522){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}DAC\end{tabular}}}}%
+    \put(0.60479004,0.09523541){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}DAC\end{tabular}}}}%
+    \put(0.02433708,0.27356192){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Serial\\Data\end{tabular}}}}%
+    \put(0.01781359,0.20611743){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left\{ a_k\right\}$\end{tabular}}}}%
+    \put(0.20672408,0.3698503){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Mapper\end{tabular}}}}%
+    \put(0.28787142,0.39324813){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{-\frac{N}{2}}$\end{tabular}}}}%
+    \put(0.20403707,0.09319168){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Add\\Virtual\\Carriers\end{tabular}}}}%
+    \put(0.20672408,0.30305764){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Mapper\end{tabular}}}}%
+    \put(0.28787142,0.32645554){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{-\frac{N}{2}+1}$\end{tabular}}}}%
+    \put(0.20672408,0.1721174){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Mapper\end{tabular}}}}%
+    \put(0.28787142,0.19551537){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$d_{\frac{N}{2}-1}$\end{tabular}}}}%
+    \put(0.40555309,0.39592083){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S_{-\frac{Ns}{2}}$\end{tabular}}}}%
+    \put(0.40555309,0.33060244){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S_{-\frac{Ns}{2}+1}$\end{tabular}}}}%
+    \put(0.40555309,0.12691786){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S_{\frac{Ns}{2}-1}$\end{tabular}}}}%
+    \put(0.49241586,0.11919262){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Add cyclic extension,\\Windowing Ns:1 P/S\end{tabular}}}}}%
+    \put(0.55046899,0.33924755){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Real\end{tabular}}}}%
+    \put(0.64035728,0.46357598){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Baseband\\OFDM\\Signal\end{tabular}}}}%
+    \put(0.65426102,0.3339715){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$I(t)$\end{tabular}}}}%
+    \put(0.6416078,0.2803852){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\cos\left( 2\pi {f_{IF}}^\prime t\right)$\end{tabular}}}}%
+    \put(0.6416078,0.18406713){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\sin\left( 2\pi {f_{IF}}^\prime t\right)$\end{tabular}}}}%
+    \put(0.78796187,0.14318246){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2\cos\left[ 2\pi\left( f_c-f_{IF}\right) t\right]$\end{tabular}}}}%
+    \put(0.65426102,0.06742866){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$Q(t)$\end{tabular}}}}%
+    \put(0.78630028,0.32149177){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IF\\OFDM\\signal\end{tabular}}}}%
+    \put(0.53700183,0.07993866){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left\{ Q_n\right\}$\end{tabular}}}}%
+    \put(0.90221844,0.2391183){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BPF\\$(f_c)$\end{tabular}}}}%
+    \put(0.95943561,0.3025577){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}RF\\OFDM\\Signal\end{tabular}}}}%
+    \put(0.54257467,0.13109834){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Imaginary\end{tabular}}}}%
+    \put(0.63494348,0.04199876){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}${f_{IF}}^\prime = f_{IF} + 1/2T$\end{tabular}}}}%
+    \put(0.53700183,0.39189899){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left\{ I_n\right\}$\end{tabular}}}}%
+    \put(0.35215287,0.2308081){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}IFFT\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
