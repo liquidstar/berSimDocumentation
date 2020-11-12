@@ -6,7 +6,7 @@
 
 %.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
 \section{Communication Link Parameters}
-The main consideration when designing a digital communication system is its ability to exceed a certain measurable thresholds when functioning over a non-ideal channel\cite{hayk}. These measurables are discussed here.
+The main consideration when designing a digital communication system is its ability to exceed a certain measurable thresholds when functioning over a non-ideal channel\cite{hayk}. These parameters are discussed here.
 
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsection{Peak-to-Average Power Ratio}
@@ -18,7 +18,7 @@ High \gls{PAPR} requires an expensive \gls{HPA}, \gls{ADC} and \gls{DAC}. Withou
 
 The problem of \gls{PAPR} is nost acutely felt at the transmitter output where to transmit the peaks without clipping, the following requirements must be met\cite{ofdm_intro}:
 \begin{itemize}
-	\item The \gls{DAC} must have enough bits to accomodate the peaks.
+	\item The \gls{DAC} must have enough bits to accommodate the peaks.
 	\item The power amplifier must remain linear over an amplitude range that includes peak amplitudes.
 \end{itemize}
 According to \cite{papr_paper}, for an OFDM system with \(N\) sub-carriers, the baseband with normalized power from an IFFT operation is:
@@ -26,7 +26,7 @@ According to \cite{papr_paper}, for an OFDM system with \(N\) sub-carriers, the 
 	s(t) = \frac{1}{\sqrt{N}} \sum_{i=0}^{N-1} S_i e^{jk\Delta ft}
 \]
 \begin{mathDef}
-	\mathSymb{\Delta f}{Subcarrier spacing}
+	\mathSymb{\Delta f}{Sub-carrier spacing}
 	\mathSymb{\S_i}{Spectrum of the \(i\)\nth sub-carrier.}
 \end{mathDef}
 From this expression, \gls{PAPR} of an OFDM signal can be derived as:
@@ -54,6 +54,7 @@ According to \cite{AWGN}, the primary causes of error performance degradation ar
 \]
 \begin{mathDef}
 	\mathSymb{\gamma}{Instantaneous \gls{SNR}}
+	\mathSymb{P_\gamma(\gamma)}{Probability density function of \(\gamma\).}
 \end{mathDef}
 It is the statistical averaging of instantaneous SNR over the probability distribution of the fading.
 
@@ -69,3 +70,84 @@ When the \gls{SNR} level at the receiver falls below a certain threshold value, 
 	\mathSymb{\gamma_\text{th}}{SNR threshold}
 \end{mathDef}
 Outage probability is the cumulative distribution function of SNR.
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Complexity}
+%.;,.;,.;,.;,.;,.;,.;,.;,.;,.;,
+\subsubsection{System Complexity}
+Refers to the circuit implementation and the technical difficulty associated with the system. This usually reflects upon the cost of manufacturing which is a key consideration when selecting a communication system.
+
+For most communication systems, the demodulator is usually more complex than the modulator, with coherent modulators being more complex because of its need for carrier recovery. Implementation of sophisticated algorithms adds to the system complexity.
+%.;,.;,.;,.;,.;,.;,.;,.;,.;,.;,
+\subsubsection{Computational Complexity}
+Computational complexity is a measure of the number of communication bits that the participants of a communication system need to exchange to perform certain tasks.
+
+The study of computational complexity focuses on \emph{problems that model typical computational needs of communication scenarios} and attempts to discern boundaries on the requisite amount of communication between processors for these scenarios.
+
+For a collection of communication problems \(f\), a lower bound \(L_f\) can be found for their computational complexity under various protocols such as:
+\begin{itemize}
+	\item One-way
+	\item Multi-way
+	\item Multi-party
+\end{itemize}
+The value \(L_f\) points to possible algorithmic improvements.
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Average Bit Error Probability}
+This is the probability that the reconstructed symbol at the receiver output differs from the transmitted binary symbol. This measure is the most revealing about a system's reliability. It most prominently features in all system performance evaluations\cite{hayk}.
+
+The conditional bit error probability of a system is a non-linear function of instantaneous \gls{SNR}. The nature of this non-linearity is a function of the modulation and detection scheme being used\cite{dcommoha}. Suppose that conditional bit error probability is:
+\[
+	P_b(E|\gamma) = C_1 \exp(a_1\gamma)
+\]
+\begin{mathDef}
+	\mathSymb{C_1,a_1}{Constants}
+\end{mathDef}
+This would be the case for coherent detection of \gls{PSK}. The average bit error probability can be written as:
+\begin{align*}
+	P_b(E|\gamma) &\triangleq \int_0^\infty P_b(E|\gamma)P_\gamma d\gamma \\
+				  &= \int_0^\infty C_1 \exp (-a_1 \gamma)P_\gamma d\gamma
+\end{align*}
+%If there is a symbol error, the most probable number of bit errors is one. With \(\log_2 M\) bits per symbol, average bit error probability is related to \gls{BER} by:
+%\begin{align*}
+	%\text{BER} &= \frac{2^{k-1}}{2^k - 1}P_b & k \in 
+%\end{align*}
+The bit error rate of a communication system can be calculated for each \gls{SNR} value as:
+\[
+	\text{BER} = \frac{\text{Number of error bits}}{\text{Number of transmit bits}}
+\]
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Symbol Rate}
+This is also known as \emph{baud rate}. It represents the number of signalling events across the transmission medium per unit time using a digitally modulated signal. Symbols of various sizes are quantized and referenced to an M-ary alphabet set, each symbol representing one of all the possible discrete amplitude levels. 
+For a symbol duration of \(T\) seconds, the baud rate is \(\frac{1}{T}\).
+
+For a communication system where \(M\) symbols are used, \(k = \log_2 M\) bits get transmitted during each \(T\). M-ary symbols enable a \(k\)-fold increase in data rate within the same bandwidth. Thus their use reduces bandwidth requirements by a factor of \(k\)\cite{AWGN}.
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Spectral Efficiency}
+It is also called bandwidth efficiency and is defined by \cite{hayk}:
+\[
+	\rho = \frac{R_b}{B}
+\]
+\begin{mathDef}
+	\mathSymb{\rho}{Spectral Efficiency}
+	\mathSymb{R_b}{Bit Rate}
+	\mathSymb{B}{Bandwidth}
+\end{mathDef}
+It is advisable to use spectrum-efficient modulation techniques that minimize bandwidth utilization and thus reduce spectral congestion\cite{AWGN}.
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Latency}
+This is the time interval between source stimulation and destination symbol change. Latency is a consequence of:
+\begin{itemize}
+	\item Limited velocity with which a transmission can propagate.
+	\item Delays due to data processing stages along the channel.
+\end{itemize}
+The lower boundary of latency is fixed by the medium being used for communication. Latency also limits the rate of information transfer due to the inherent limit on the amount of information that can be in transit at any time instance.
+
+Latency can be mitigated by:
+\begin{itemize}
+	\item Synchronization between transmitter and receiver. Both are synchronized to a master clock which enables the receiver to compensate for the delay offset.
+	\item Embedding clock signal in the data stream\cite{Proakis}. This permits asynchronous operation and facilitates higher data transmission rates as there is no limit on the amount of information that can be in transit at a time.
+\end{itemize}
