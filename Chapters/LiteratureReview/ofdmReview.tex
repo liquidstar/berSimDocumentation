@@ -41,7 +41,7 @@ The \emph{IEEE 802.11} specification is a standard that specifies the set requir
 		\hline
 		Modulation technique & BPSK, QPSK, 16-QAM, 64-QAM \\
 		Coding rate & 1/2, 2/3, 3/4 \\
-		Number of subcarriers & 52 \\
+		Number of sub-carriers & 52 \\
 		Number of pilots & 4 \\
 		Symbol duration & \SI{4}{\micro\second} \\
 		Guard interval & \SI{800}{\nano\second} \\
@@ -93,15 +93,15 @@ The final form of an OFDM signal can be a \emph{baseband} or a \emph{bandpass} s
 	s(t) &= \sum_{i=0}^{N-1}s_i(t) = \sum_{i=0}^{N-1}A_i \cos (2\pi f_i t + \phi_i) & 0 \leq t \leq T
 \end{align*}
 \begin{mathDef}
-	\mathSymb{A_i}{Amplitude of \(i\)\nth subcarrier}
-	\mathSymb{f_i}{Frequency of \(i\)\nth subcarrier}
-	\mathSymb{\phi_i}{Phase of \(i\)\nth subcarrier}
-	\mathSymb{N}{Number of subcarriers}
+	\mathSymb{A_i}{Amplitude of \(i\)\nth sub-carrier}
+	\mathSymb{f_i}{Frequency of \(i\)\nth sub-carrier}
+	\mathSymb{\phi_i}{Phase of \(i\)\nth sub-carrier}
+	\mathSymb{N}{Number of sub-carriers}
 	\mathSymb{T}{Symbol period of the data}
 \end{mathDef}
 Depending on the modulation format (\gls{ASK} or \gls{PSK}), \(A_i\) or \(\phi_i\) respectively are determined by data while the others remain constant.
 %`'`'`'`'`'`'`'`'`'`'
-\paragraph{Proof of orthogonality} For the sub-carriers to be orthogonal, \(f_i\) must be integer multiples of \(1/2T\) and the minimum frequency separation between them must be \(1/T\). The subcarrier frequencies are taken to be:
+\paragraph{Proof of orthogonality} For the sub-carriers to be orthogonal, \(f_i\) must be integer multiples of \(1/2T\) and the minimum frequency separation between them must be \(1/T\). The sub-carrier frequencies are taken to be:
 \begin{align}
 	f_i &= iR_s = \frac{i}{T} & i = 0, 1, \ldots, N-1
 	\label{eq:litRev:subCarriers}
@@ -109,8 +109,8 @@ Depending on the modulation format (\gls{ASK} or \gls{PSK}), \(A_i\) or \(\phi_i
 \begin{mathDef}
 	\mathSymb{R_s}{Symbol duration}
 \end{mathDef}
-If we take the lowest subcarrier frequency as \(f_0\), the sub-carrier frequencies are: \(f_0, f_0 + R_s, f_0 + 2R_s, \ldots, f_0 + (N-1)R_s\). In practice, \(f_0\) isn't \SI{0}{\hertz} to avoid a DC offset in the \gls{DAC}.
-With the subcarrier frequencies in equation \eqref{eq:litRev:subCarriers}, orthogonality is verified by:
+If we take the lowest sub-carrier frequency as \(f_0\), the sub-carrier frequencies are: \(f_0, f_0 + R_s, f_0 + 2R_s, \ldots, f_0 + (N-1)R_s\). In practice, \(f_0\) isn't \SI{0}{\hertz} to avoid a DC offset in the \gls{DAC}.
+With the sub-carrier frequencies in equation \eqref{eq:litRev:subCarriers}, orthogonality is verified by:
 \[
 	\int_0^T s_i(t)s_j(t) \cdot dt =
 	\begin{cases}
@@ -119,9 +119,9 @@ With the subcarrier frequencies in equation \eqref{eq:litRev:subCarriers}, ortho
 		0 & i \neq j
 	\end{cases}
 \]
-This is the proof of orthogonality between subcarriers and it holds for all values of \(A_i\), \(A_j\) and \(\phi_i\), \(\phi_j\) for the frequency allocation of equation \eqref{eq:litRev:subCarriers}\cite{ofdm_intro}.
+This is the proof of orthogonality between sub-carriers and it holds for all values of \(A_i\), \(A_j\) and \(\phi_i\), \(\phi_j\) for the frequency allocation of equation \eqref{eq:litRev:subCarriers}\cite{ofdm_intro}.
 
-The frequency spectrum of the \gls{OFDM} signal is characterized by its \gls{PSD}. With the assumption that the data on each subcarrier is independent of others, overall \gls{PSD} is a superposition of the PSDs of all sub-channel signals\cite{fuqin}:
+The frequency spectrum of the \gls{OFDM} signal is characterized by its \gls{PSD}. With the assumption that the data on each sub-carrier is independent of others, overall \gls{PSD} is a superposition of the PSDs of all sub-channel signals\cite{fuqin}:
 \begin{equation}
 	S(f) = \sum_{i=0}^{N-1}S_i(f)
 	\label{eq:litRev:generalPSD}
@@ -162,7 +162,7 @@ The null bandwidth of the composite \gls{PSD} of an \(N\) sub-carrier baseband O
 %`'`'`'`'`'`'`'`'`'`'
 \paragraph{Passband OFDM Signal}
 
-When an \gls{RF} bandwidth is allocated to an OFDM signal, subcarrier frequencies are chosen to be symmetrically distributed around a nominal carrier frequency. Thus, the subcarrier frequencies are:
+When an \gls{RF} bandwidth is allocated to an OFDM signal, sub-carrier frequencies are chosen to be symmetrically distributed around a nominal carrier frequency. Thus, the sub-carrier frequencies are:
 \begin{align*}
 	f_i &= f_c - \frac{N-1}{2T} + \frac{i}{T} & i = 0,1,\ldots,N-1
 \end{align*}
@@ -177,7 +177,7 @@ The passband OFDM signal can be expressed:
 \begin{align*}
 	s(t) &= \sum_{i=0}^{N-1} A_i \cos \left[ 2\pi \left( f_c - \frac{N-1}{2T} + \frac{i}{T}\right)t + \phi_i \right] & 0 \leq t \leq T
 \end{align*}
-The sub-channels at \gls{RF} frequencies need not be orthogonal to each other since demodulation is not performed at RF frequencies\cite{fuqin}. The RF-band OFDM signal is first down-converted to baseband frequencies where subcarrier frequencies are multiples of \(1/2T\)\cite{fuqin}. At this point, it's then demodulated.
+The sub-channels at \gls{RF} frequencies need not be orthogonal to each other since demodulation is not performed at RF frequencies\cite{fuqin}. The RF-band OFDM signal is first down-converted to baseband frequencies where sub-carrier frequencies are multiples of \(1/2T\)\cite{fuqin}. At this point, it's then demodulated.
 
 The passband OFDM signal is a frequency shifted version of the baseband signal. When data on each sub-channel is independent of the others, the total \gls{PSD} is a sum of individual PSDs:
 \[
@@ -186,15 +186,15 @@ The passband OFDM signal is a frequency shifted version of the baseband signal. 
 \begin{mathDef}
 	\mathSymb{{f_c}^\prime}{Frequency shift of passband OFDM signal}
 \end{mathDef}
-The frequency shift can be found by mixing the baseband OFDM signal with an \gls{RF} signal of frequency \({f_c}^\prime\) while keeping the \gls{USB} but discarding the \gls{LSB}. The mixing frequency is the nomical carrier frequency with an offset:
+The frequency shift can be found by mixing the baseband OFDM signal with an \gls{RF} signal of frequency \({f_c}^\prime\) while keeping the \gls{USB} but discarding the \gls{LSB}. The mixing frequency is the nominal carrier frequency with an offset:
 \[
 	{f_c}^\prime = f_c - \frac{N-1}{2T}
 \]
-The null-to-null bandwidwth is given by:
+The null-to-null bandwidth is given by:
 \[
 	B_{null-to-null} = \frac{N + 1}{R_s}
 \]
-Transition bands of passband PSDs get sharper and sidelobes get lower as \(N\) increases. Normalized null-to-null bandwidth approaches 1 as \(N\to\infty\)\cite{fuqin}.
+Transition bands of passband PSDs get sharper and side-lobes get lower as \(N\) increases. Normalized null-to-null bandwidth approaches 1 as \(N\to\infty\)\cite{fuqin}.
 
 The Nyquist rate of a channel with a rectangular frequency response is equal to its passband bandwidth. This is achievable with OFDM since its normalized passband frequency bandwidth is 1\cite{fuqin}.
 
@@ -231,7 +231,7 @@ This implementation is a scaled version of single carrier communication system. 
 			\mathSymb{I_i}{Symbol in-phase component.}
 			\mathSymb{Q_i}{Symbol quadrature component.}
 		\end{mathDef}
-	\item \(d_i\) is modulated onto the \(i\)\nth subcarrier in the modulator. Sub-channels may have different modulation formats. There are \(N\) modulators, each comprising a subcarrier frequency oscillator. The separate sub-channel signals are then added by the adder to generate the baseband OFDM signal.
+	\item \(d_i\) is modulated onto the \(i\)\nth sub-carrier in the modulator. Sub-channels may have different modulation formats. There are \(N\) modulators, each comprising a sub-carrier frequency oscillator. The separate sub-channel signals are then added by the adder to generate the baseband OFDM signal.
 	\item To get a passband OFDM signal, the baseband signal is fed into an RF mixer which has a reference signal of frequency \({f_c}^\prime\) and a \gls{BPF} which rejects the resulting \gls{LSB} of the mixer output. The passband signal's spectrum is centered at \(f_c\).
 \end{itemize}
 
@@ -291,7 +291,7 @@ Null-to-null bandwidth is \(2N/T\) therefore sampling frequency should at least 
 \[
 	d_0, d_1, \ldots, d_{N-1}, 0, 0, \ldots, 0
 \]
-A \(2N\)-point \gls{IDFT} is used to generate the \gls{OFDM} signal while an \(N\)-point \gls{DFT} is used to demodulate the signal. The zero data subcarriers are called \emph{dummy/virtual} sub-channels. This way there will be no significant aliasing.
+A \(2N\)-point \gls{IDFT} is used to generate the \gls{OFDM} signal while an \(N\)-point \gls{DFT} is used to demodulate the signal. The zero data sub-carriers are called \emph{dummy/virtual} sub-channels. This way there will be no significant aliasing.
 %`'`'`'`'`'`'`'`'`'`'
 \paragraph{DFT-based Digital Modulator} This is the process by which an OFDM signal is generated:
 \begin{itemize}
@@ -321,7 +321,7 @@ A \(2N\)-point \gls{IDFT} is used to generate the \gls{OFDM} signal while an \(N
 	\item The \gls{RF} signal is down-converted to the \gls{IF} band.
 	\item The \gls{IF} signal is then demodulated to the baseband \emph{in-phase} and \emph{quadrature} \gls{OFDM} signals.
 	\item The demodulated signals are sampled. Their guard interval and cyclic extensions are removed.
-	\item An \(N\)-point \gls{DFT} is performed on the sampled signals to obtain the original signals which are demapped back into a binary data stream.
+	\item An \(N\)-point \gls{DFT} is performed on the sampled signals to obtain the original signals which are de-mapped back into a binary data stream.
 \end{itemize}
 \begin{figure}[!ht]
 	\centering

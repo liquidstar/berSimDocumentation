@@ -1,0 +1,71 @@
+%▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+%██░████▄░▄██░▀██░██░█▀▄████░▄▄░█░▄▄▀██░▄▄▀█░▄▄▀██░▄▀▄░██░▄▄▄█▄▄░▄▄██░▄▄▄██░▄▄▀██░▄▄▄░
+%██░█████░███░█░█░██░▄▀█████░▀▀░█░▀▀░██░▀▀▄█░▀▀░██░█░█░██░▄▄▄███░████░▄▄▄██░▀▀▄██▄▄▄▀▀
+%██░▀▀░█▀░▀██░██▄░██░██░████░████░██░██░██░█░██░██░███░██░▀▀▀███░████░▀▀▀██░██░██░▀▀▀░
+%▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+%.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
+\section{Communication Link Parameters}
+The main consideration when designing a digital communication system is its ability to exceed a certain measurable thresholds when functioning over a non-ideal channel\cite{hayk}. These measurables are discussed here.
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Peak-to-Average Power Ratio}
+\gls{PAPR} is the relation between maximum power of a sample in a given \gls{OFDM} transmit symbol divided by the average power of the symbol\cite{french}. An OFDM signal is a sum of \(N\) independent, complex random variables, each of which is a signal of a different sub-carrier frequency. In an extreme case, different sub-carriers may line up in phase at the same time instance, producing an amplitude peak which is equal to the sum of the amplitudes individual sub-carriers.
+
+A transmitted OFDM signal (that tends to) have large peaks suffers significant degradation in performance when the signal passes through a saturated \gls{HPA}. Due to the saturation of \gls{HPA}s, in-band distortion is introduced which causes out-of-band radiation, interfering with adjacent channels\cite{prob} and consequently increasing \gls{BER}.
+
+High \gls{PAPR} requires an expensive \gls{HPA}, \gls{ADC} and \gls{DAC}. Without large power back-offs, out of band power cannot be kept within specified limits, causing inefficiencies in amplification and requiring expensive (powerful) transmitter amplifiers.
+
+The problem of \gls{PAPR} is nost acutely felt at the transmitter output where to transmit the peaks without clipping, the following requirements must be met\cite{ofdm_intro}:
+\begin{itemize}
+	\item The \gls{DAC} must have enough bits to accomodate the peaks.
+	\item The power amplifier must remain linear over an amplitude range that includes peak amplitudes.
+\end{itemize}
+According to \cite{papr_paper}, for an OFDM system with \(N\) sub-carriers, the baseband with normalized power from an IFFT operation is:
+\[
+	s(t) = \frac{1}{\sqrt{N}} \sum_{i=0}^{N-1} S_i e^{jk\Delta ft}
+\]
+\begin{mathDef}
+	\mathSymb{\Delta f}{Subcarrier spacing}
+	\mathSymb{\S_i}{Spectrum of the \(i\)\nth sub-carrier.}
+\end{mathDef}
+From this expression, \gls{PAPR} of an OFDM signal can be derived as:
+\[
+	\text{PAPR} = \frac{\left( |x(t)|^2 \right)_\text{max}}{E\left\{ |x(t)|^2 \right\}}
+\]
+\begin{mathDef}
+	\mathSymb{E\{\cdot\}}{Average}
+\end{mathDef}
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Average Signal-to-Noise Ratio}
+\gls{SNR} is defined as the ratio of signal power to background noise power \emph{within the same bandwidth}\cite{dcommoha}.
+For an effective transmission technology, retrieval of bits from a received waveform should be as error-free as possible in spite of non-idealities in the communication system. This can be done by achieving the best possible \gls{SNR} free of \gls{ISI}.
+
+SNR degrades through cumulative losses (absorption, scattering, reflection of a portion of signal) or increasing noise/interference power. 
+According to \cite{AWGN}, the primary causes of error performance degradation are:
+\begin{itemize}
+	\item The effect of filtering at the transmitter, channel, and receiver for non-ideal system transfer with \gls{ISI}.
+\item Electrical noise and interference produced by a variety of sources such as \emph{atmospheric noise, switching transients} and \emph{intermodulation noise}.
+\end{itemize}
+\emph{Average \gls{SNR}} is the most appropriate measure in a communication system subject to fading.
+\[
+	\bar{\gamma} \triangleq \int_0^\infty \gamma P_\gamma (\gamma) d\gamma
+\]
+\begin{mathDef}
+	\mathSymb{\gamma}{Instantaneous \gls{SNR}}
+\end{mathDef}
+It is the statistical averaging of instantaneous SNR over the probability distribution of the fading.
+
+%~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
+\subsection{Outage Probability}
+When the \gls{SNR} level at the receiver falls below a certain threshold value, the system is said to be in outage. Accurate detection may not be possible below such a threshold, resulting in reception of many bits in error, rendering the system unreliable\cite{MIMO}.
+
+\emph{Outage probability} is defined as the probability that instantaneous SNR falls below a certain specified threshold:
+\[
+	P_{\text{out}} = \int_0^{\gamma_{\text{th}}} P_\gamma (\gamma) d\gamma
+\]
+\begin{mathDef}
+	\mathSymb{\gamma_\text{th}}{SNR threshold}
+\end{mathDef}
+Outage probability is the cumulative distribution function of SNR.
