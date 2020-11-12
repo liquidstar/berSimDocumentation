@@ -4,7 +4,7 @@
 *.fls
 *.glo
 *.ist
-*.pdf
+report.pdf
 *.aux
 *.gls
 *.lof
