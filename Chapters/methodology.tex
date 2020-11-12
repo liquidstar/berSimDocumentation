@@ -18,7 +18,7 @@ The communication system will be modeled in MATLAB's Simulink for ease of visual
 \subsection{\gls{OFDM} Transmitter}
 The transmitter:
 \begin{figure}[htpb!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_T_BLK.pdf_tex}}}
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_T_BLK.pdf_tex}}}
 	\caption{\gls{OFDM} Transmitter Block Diagram Implementation}
 	\label{fig:ofdm_t_meth}
 \end{figure}
@@ -26,7 +26,7 @@ The transmitter:
 \subsection{\gls{OFDM} Receiver}
 The receiver:
 \begin{figure}[htpb!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_R_BLK.pdf_tex}}}
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_R_BLK.pdf_tex}}}
 	\caption{\gls{OFDM} Receiver Block Diagram Implementation}
 	\label{fig:ofdm_r_meth}
 \end{figure}
@@ -36,7 +36,7 @@ The channel models that will be simulated are:
 \subsubsection{\gls{AWGN} Channel}
 This channel adds white Gaussian noise to the signal as it is propagated through. 
 \begin{figure}[htpb!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_CH_AWGN_BLK.pdf_tex}}}
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_CH_AWGN_BLK.pdf_tex}}}
 	\caption{\gls{AWGN} channel Block Diagram}
 	\label{fig:ofdm_ch_awgn_meth}
 \end{figure}
@@ -44,7 +44,7 @@ This channel adds white Gaussian noise to the signal as it is propagated through
 \subsubsection{Rayleigh Fading Channel}
 The Rayleigh fading channel assumes no specular components in the transmitted signal. The signal Rayleigh fading has a Rayleigh Distribution.
 \begin{figure}[htpb!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_CH_RAYL_BLK.pdf_tex}}}
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_CH_RAYL_BLK.pdf_tex}}}
 	\caption{Rayleigh Fading Channel Block Diagram}
 	\label{fig:ofdm_ch_rayl_meth}
 \end{figure}
@@ -52,7 +52,7 @@ The Rayleigh fading channel assumes no specular components in the transmitted si
 \subsubsection{Rician Fading Channel}
 The Rician fading channel has multipath components as with the Rayleigh fading channel but has, in addition, a dominant line-of-sight component. The strength of the specular component determines the shape of the Rician distribution. 
 \begin{figure}[h!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/OFDM_CH_RICE_BLK.pdf_tex}}}
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_CH_RICE_BLK.pdf_tex}}}
 	\caption{Rician Fading Channel Block Diagram}
 	\label{fig:ofdm_ch_rice_meth}
 \end{figure}
@@ -60,7 +60,7 @@ The Rician fading channel has multipath components as with the Rayleigh fading c
 \section{\gls{BER} Evaluation}
 The system's \gls{BER} performance is to be evaluated within \gls{simulink} as well. The equivalent implementation would be as in figure \ref{fig:ber_blk_meth}
 \begin{figure}[htpb!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/BER_BLK.pdf_tex}}}
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/BER_BLK.pdf_tex}}}
 	\caption{\gls{BER} Evaluation}
 	\label{fig:ber_blk_meth}
 \end{figure}
@@ -68,7 +68,7 @@ The system's \gls{BER} performance is to be evaluated within \gls{simulink} as w
 \section{\gls{PAPR} Evaluation}
 \gls{PAPR} is evaluated at the transmitter output. To achieve this measurement, the peak amplitude is sampled over several symbol durations then its square divided by the square of the average signal amplitude.
 \begin{figure}[htpb!]
-	\centerline{\resizebox{10cm}{!}{\input{Graphics/PAPR_BLK.pdf_tex}}}
+	\centerline{\resizebox{10cm}{!}{\input{Graphics/Methodology/PAPR_BLK.pdf_tex}}}
 	\caption{\gls{PAPR} Evaluation}
 	\label{fig:papr_blk_meth}
 \end{figure}
