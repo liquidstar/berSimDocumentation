@@ -22,15 +22,15 @@ The transmitter:
 	\caption{\gls{OFDM} Transmitter Block Diagram Implementation}
 	\label{fig:ofdm_t_meth}
 \end{figure}
-\pagebreak
-\subsection{\gls{OFDM} Receiver}
-The receiver:
 \begin{figure}[htpb!]
-	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_R_BLK.pdf_tex}}}
-	\caption{\gls{OFDM} Receiver Block Diagram Implementation}
-	\label{fig:ofdm_r_meth}
+	\centerline{\resizebox{!}{0.935\textheight}{\includegraphics{Graphics/Methodology/Transmitter_flowchart.pdf}}}
+	\caption{System Transmitter Flowchart Algorithm}
+	\label{fig:system_transmitter}
 \end{figure}
+
 \pagebreak
+
+
 \subsection{Channel}
 The channel models that will be simulated are:
 \subsubsection{\gls{AWGN} Channel}
@@ -56,6 +56,31 @@ The Rician fading channel has multipath components as with the Rayleigh fading c
 	\caption{Rician Fading Channel Block Diagram}
 	\label{fig:ofdm_ch_rice_meth}
 \end{figure}
+
+
+\begin{figure}[htpb!]
+	\centerline{\resizebox{!}{0.935\textheight}{\includegraphics{Graphics/Methodology/Channel_flowchart.pdf}}}
+	\caption{System Channel Flowchart Algorithm}
+	\label{fig:ofdm_channel_meth}
+\end{figure}
+\pagebreak
+
+
+\subsection{\gls{OFDM} Receiver}
+The receiver:
+\begin{figure}[htpb!]
+	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_R_BLK.pdf_tex}}}
+	\caption{\gls{OFDM} Receiver Block Diagram Implementation}
+	\label{fig:ofdm_r_meth}
+\end{figure}
+\begin{figure}[htpb!]
+	\centerline{\resizebox{!}{0.935\textheight}{\includegraphics{Graphics/Methodology/Receiver_flowchart.pdf}}}
+	\caption{System Receiver Flowchart Algorithm}
+	\label{fig:ofdm_receiver_meth}
+\end{figure}
+
+
+\pagebreak
 
 \section{\gls{BER} Evaluation}
 The system's \gls{BER} performance is to be evaluated within \gls{simulink} as well. The equivalent implementation would be as in figure \ref{fig:ber_blk_meth}
