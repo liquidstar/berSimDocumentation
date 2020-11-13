@@ -2,11 +2,12 @@
 % Macros in one place for ease of use
 %=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
-
 % - - - - - - - - - - - - - - - - - - - -
 % Table cell color for timeline
 %
 \newcommand{\shade}{\cellcolor[HTML]{FF8282}}
+\definecolor{black}{HTML}{000000}
+\definecolor{darkTheme}{HTML}{DDDDDD}
 
 % - - - - - - - - - - - - - - - - - - - -
 % Formula symbol definition ENVIRONMENT
@@ -29,3 +30,13 @@
 % Making sinc a math operation
 %
 \newcommand{\sinc}{\text{sinc~}}
+
+% - - - - - - - - - - - - - - - - - - - -
+% Code block
+%
+\newcommand{\codeBlock}[1]
+{{\raggedRight\ttfamily\small\begin{spacing}{0.5}
+#1
+\end{spacing}
+}}
+\newcommand{\ti}{\hspace{0.5cm}}
