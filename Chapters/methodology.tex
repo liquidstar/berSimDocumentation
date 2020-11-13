@@ -13,13 +13,13 @@ The project with be executed in the following sequence:
 	\item Use MATLAB's regression tools to derive an expression for the \gls{BER} curves generated.
 \end{enumerate}
 
-\section{\gls{OFDM} Simulation}
+\section{OFDM Simulation}
 The communication system will be modeled in MATLAB's Simulink for ease of visualization and implementation. The blocks in the diagrams that follow have analogs in \gls{simulink}'s Communication toolbox library.
-\subsection{\gls{OFDM} Transmitter}
+\subsection{OFDM Transmitter}
 The transmitter:
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_T_BLK.pdf_tex}}}
-	\caption{\gls{OFDM} Transmitter Block Diagram Implementation}
+	\caption{OFDM Transmitter Block Diagram Implementation}
 	\label{fig:ofdm_t_meth}
 \end{figure}
 \begin{figure}[htpb!]
@@ -33,11 +33,11 @@ The transmitter:
 
 \subsection{Channel}
 The channel models that will be simulated are:
-\subsubsection{\gls{AWGN} Channel}
+\subsubsection{AWGN Channel}
 This channel adds white Gaussian noise to the signal as it is propagated through. 
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_CH_AWGN_BLK.pdf_tex}}}
-	\caption{\gls{AWGN} channel Block Diagram}
+	\caption{AWGN channel Block Diagram}
 	\label{fig:ofdm_ch_awgn_meth}
 \end{figure}
 
@@ -66,11 +66,11 @@ The Rician fading channel has multipath components as with the Rayleigh fading c
 \pagebreak
 
 
-\subsection{\gls{OFDM} Receiver}
+\subsection{OFDM Receiver}
 The receiver:
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_R_BLK.pdf_tex}}}
-	\caption{\gls{OFDM} Receiver Block Diagram Implementation}
+	\caption{OFDM Receiver Block Diagram Implementation}
 	\label{fig:ofdm_r_meth}
 \end{figure}
 \begin{figure}[htpb!]
@@ -82,7 +82,7 @@ The receiver:
 
 \pagebreak
 
-\section{\gls{BER} Evaluation}
+\section{BER Evaluation}
 The system's \gls{BER} performance is to be evaluated within \gls{simulink} as well. The equivalent implementation would be as in figure \ref{fig:ber_blk_meth}
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/BER_BLK.pdf_tex}}}
@@ -90,7 +90,7 @@ The system's \gls{BER} performance is to be evaluated within \gls{simulink} as w
 	\label{fig:ber_blk_meth}
 \end{figure}
 
-\section{\gls{PAPR} Evaluation}
+\section{PAPR Evaluation}
 \gls{PAPR} is evaluated at the transmitter output. To achieve this measurement, the peak amplitude is sampled over several symbol durations then its square divided by the square of the average signal amplitude.
 \begin{figure}[htpb!]
 	\centerline{\resizebox{10cm}{!}{\input{Graphics/Methodology/PAPR_BLK.pdf_tex}}}

@@ -1,0 +1,37 @@
+%░▒█▀▀▄░▒█░▒█░█▀▀▄░▒█░░░░▒█░░░░▒█▀▀▀░▒█▄░▒█░▒█▀▀█░▒█▀▀▀░▒█▀▀▀█
+%░▒█░░░░▒█▀▀█▒█▄▄█░▒█░░░░▒█░░░░▒█▀▀▀░▒█▒█▒█░▒█░▄▄░▒█▀▀▀░░▀▀▀▄▄
+%░▒█▄▄▀░▒█░▒█▒█░▒█░▒█▄▄█░▒█▄▄█░▒█▄▄▄░▒█░░▀█░▒█▄▄▀░▒█▄▄▄░▒█▄▄▄█
+%.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
+\section{Challenges}
+%,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,
+\subsection{Computational complexity}
+For the simulated communication system to approximate the actual physical implementation, it would require passband elements, which also implies digital to analog conversion. The problem with simulating analog signals is that in reality they require infinite bandwidth and therefore an infinite number of samples to achieve fidelity.
+
+That said, with limitations in memory capacity and processing power, true analog simulation is in reality infeasible with the technology available. Consequently, passband fidelity can only at best be roughly approximated. Thankfully, it has been found that the error performance of various modulation schemes is the same regardless of transmission band.
+
+Thus, while a true passband communication system could not be simulated, its error performance was still obtained through the successfully modelled and simulated baseband model.
+
+%,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,
+\subsection{Randomness}
+The simulation depends on random processes for the following vital functions:
+\begin{itemize}
+	\item The data source
+	\item Additive White Gaussian Noise
+	\item Fading channel models
+\end{itemize}
+It's factual that the consistency of results in the face of such entropy underlines the simulation's reliability. However, due to the intrinsic chaotic nature of randomness, on some occasions the results in unexpected instances suffer indeterministic offsets, invalidating outcomes.
+
+This is mitigated by using high bit counts. The effect of outliers in the large population is effectively eliminated, and the accuracy of results restored.
+
+%,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,
+\subsection{FFT/IFFT induced errors}
+In the early stages of the simulation's modelling, prior to implementation of \gls{OFDM}, the system's error performance was found to fully conform to expected outcomes, particularly in AWGN channel models. However, with implementation of OFDM through the fast IDFT/DFT algorithm pairs, it was found that the error performance curves shifted right, indicating an decline in error performance.
+
+The authors of this report theorize that the finer resolution of the orthogonal modulation product suffers channel degradation more severely than single-carrier modulated signals. This remains unproven and is grounds for further study.
+
+%,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,,;,
+\subsection{Model variation from real world performance}
+The channel model's used can only approximate real world transmission on a macro scale. Under closer scrutiny, the models are insufficient for specific cases which require unique models of their own.
+
+The only way around this issue is to develop unique models for each specific use case which again fails the requirement for generalizability.
+
