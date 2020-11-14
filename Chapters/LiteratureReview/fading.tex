@@ -69,8 +69,8 @@ This is also called \emph{non-frequency selective fading}. It is found in wirele
 
 There is no channel-induced \gls{ISI}. There is still performance degradation, as the unresolvable components may still add destructively to cause a significant reduction in \gls{SNR}. The fading channel is characterized by:
 \begin{align*}
-	B_c &\ll B_s \\
-	\sigma_\tau &\ll T_s
+	B_c &> B_s \\
+	\sigma_\tau &< T_s
 \end{align*}
 \begin{mathDef}
 	\mathSymb{B_c}{Coherence Bandwidth}
@@ -86,13 +86,15 @@ A channel has frequency selective fading if multi-path delay time is greater tha
 \end{align*}
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsubsection{Fast Fading}
-This is a channel whose impulse response changes within a single symbol duration. Such rapid changes are attributed to motion or Doppler spreading. In fast fading, there is low data rate and high speed of the mobile unit\cite{fuqin}. A fast fading channel:
+This is a channel whose impulse response changes within a single symbol duration. Such rapid changes are attributed to motion or Doppler spreading. In fast fading, there is low data rate and high speed of the mobile unit\cite{fuqin}.
+
+\noindent For a fast fading channel:
 \begin{align*}
 	T_s &> T_c \\
 	B_s &< B_D
 \end{align*}
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
-\subsubsection{Frequency Selective Fading}
+\subsubsection{Slow Fading}
 In slow fading, the channel impulse response changes at a slower rate than symbol rate. It corresponds to high data rate and low speed of the mobile unit. Characterized by:
 \begin{align*}
 	T_s &\ll T_c \\
@@ -160,7 +162,7 @@ The figure below shows the Rician distribution density for various \(K\) at fixe
 	\caption{Rician probability distribution function}
 \end{figure}
 
-When \(K=0\) and \(A=0\), implying the absence of a specular component, the Rician distribution becomes a Rayleigh distribution.
+When \(A=0\) and therefore \(K=-\infty\), implying the absence of a specular component, the Rician distribution becomes a Rayleigh distribution.
 
 %,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.
 \subsection{Digital Modulation in slow, flat fading channels}

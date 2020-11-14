@@ -33,7 +33,7 @@ A novel application of OFDM was pioneered by \emph{Cioffi} and others at \emph{S
 The \emph{IEEE 802.11} specification is a standard that specifies the set requirements for the physical layer and a medium access control layer. The standard provides two definitions for physical layers-- \emph{802.11b} for \SI{2.4}{\giga\hertz} operation and \emph{802.11a} for \SI{5}{\giga\hertz} operation\cite{802.11}.
 
 \emph{802.11a} and \emph{802.11b} are not inter-operable unless the equipment in use has dual band capability. These are the standard's specifications:
-\begin{table}
+\begin{table}[!h]
 	\centering
 	\renewcommand{\arraystretch}{1.5}
 	\begin{tabular}{l l}
@@ -49,13 +49,15 @@ The \emph{IEEE 802.11} specification is a standard that specifies the set requir
 		\SI{3}{\decibel} bandwidth & \SI{16.56}{\mega\hertz} \\
 		Channel spacing & \SI{20}{\hertz}
 	\end{tabular}
+	\caption{IEEE 802.11 specifications}
 	\label{tab:litRev:802.11}
 \end{table}
-All data sub-carriers use the same modulation format within a given burst but this can vary from burst to burst.
+
+\noindent All data sub-carriers use the same modulation format within a given burst but this can vary from burst to burst.
 
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsubsection{OFDM Variants}
-Variants of OFDM follow the standard implementation but possess additional attributes. Some of these include:
+Variants of OFDM follow the standard implementation but possess additional augmentative attributes. Some of these include:
 %`'`'`'`'`'`'`'`'`'`'
 \paragraph{Coded OFDM} This is a variant of OFDM in which error correcting code is incorporated into the signal.
 %`'`'`'`'`'`'`'`'`'`'
@@ -71,7 +73,7 @@ Variants of OFDM follow the standard implementation but possess additional attri
 
 Recovering the signals of the sub-channels at the receiver can be achieved through:
 \begin{itemize}
-	\item Spacing sub-carrier frequencies such that the spectra of \(N\) sub-channels do not overlap. \(N\) \gls{BPF}s are then used to separate these sub-channels, each requiring a sharp frequency response. This is the method used in \gls{OFDM}.
+	\item Spacing sub-carrier frequencies such that the spectra of \(N\) sub-channels do not overlap. \(N\) \gls{BPF}s are then used to separate these sub-channels, each requiring a sharp frequency response. This is the method used in \gls{FDM}.
 	\item Allowing the sub-carriers which are orthogonally spaced by \(1/T\) to overlap. The signals in the sub-carriers are recovered from the sub-carriers using correlators in the receiver. This method is used in \gls{OFDM}.
 \end{itemize}
 The advantages of \gls{OFDM} over single carrier modulation are:
@@ -86,7 +88,7 @@ Wide adoption of OFDM in recent years has been commensurate with increasing comp
 
 %,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.
 \subsubsection{OFDM Signal and Spectrum}
-The final form of an OFDM signal can be a \emph{baseband} or a \emph{bandpass} signal. It is always baseband for wired systems due to limited bandwidth. In wireless systems, baseband signals are up-converted to the \gls{RF} band for transmission.
+The final form of an OFDM signal can be a \emph{baseband} or a \emph{passband} signal. It is always baseband for wired systems due to limited bandwidth. In wireless systems, baseband signals are up-converted to the \gls{RF} band for transmission.
 %`'`'`'`'`'`'`'`'`'`'
 \paragraph{Baseband OFDM Signal} Its general form is expressed as:
 \begin{align*}
@@ -266,7 +268,7 @@ Out of this, the baseband OFDM signal can be written as:
 \begin{align*}
 	s(t) &= \Re \left[ \sum_{i=0}^{N-1} d_i \exp (j2\pi\frac{i}{T}t) \right] = \Re [\tilde{s}(t)] & 0 \leq t \leq T
 \end{align*}
-That is to say that the baseband OFDM signal is the real part of the complex envelope of the bandpass OFDM signal. Sampling the complex envelope with a sampling period \(\Delta t = T/N\) with a normalizing factor \(1/N\) gives:
+That is to say that the baseband OFDM signal is the real part of the complex envelope of the passband OFDM signal. Sampling the complex envelope with a sampling period \(\Delta t = T/N\) with a normalizing factor \(1/N\) gives:
 \begin{align}
 	s_n &= \frac{1}{N} \sum_{i=0}^{N-1} d_i \exp \left( j2\pi \frac{in}{N} \right) & n = 0,1,\ldots,N-1
 	\label{eq:litRev:idftEnv}
@@ -278,7 +280,7 @@ If these samples arrive at the receiver without distortion, the original data sy
 	d_i &= \sum_{n=0}^{N-1} s_n \exp \left(-j2\pi\frac{in}{N}\right) & i = 0,1,\ldots,N-1
 \end{align*}
 
-Thus, in summary, OFDM modulation and demodulation can be implemented through \gls{IDFT} and \gls{DFT} respectively. \gls{IDFT} and \gls{DFT} can be calculated using their fast algorithms: \gls{IFFT} and \gls{FFT} which reduce computational complexity to \(O(n\log n)\) from \(O(n^2)\).
+Thus, in summary, OFDM modulation and demodulation can be implemented through \gls{IDFT} and \gls{DFT} respectively. \gls{IDFT} and \gls{DFT} can be efficiently calculated using their fast algorithms: \gls{IFFT} and \gls{FFT} which reduce computational complexity to \(O(n\log n)\) from \(O(n^2)\).
 
 In practice, complex signal samples \(\{s_n\}\) must be separated into a real and imaginary component in the form of an in-phase and quadrature channel. They're each converted to an analog signal before transmission or modulated onto \gls{HF} carriers for \gls{RF} band transmission.
 %`'`'`'`'`'`'`'`'`'`'

@@ -6,7 +6,7 @@
 
 %.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
 \section{Communication Link Parameters}
-The main consideration when designing a digital communication system is its ability to exceed a certain measurable thresholds when functioning over a non-ideal channel\cite{hayk}. These parameters are discussed here.
+The main consideration when designing a digital communication system is its ability to exceed certain measurable thresholds when functioning over a non-ideal channel\cite{hayk}. These parameters are discussed here.
 
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsection{Peak-to-Average Power Ratio}
@@ -27,7 +27,7 @@ According to \cite{papr_paper}, for an OFDM system with \(N\) sub-carriers, the 
 \]
 \begin{mathDef}
 	\mathSymb{\Delta f}{Sub-carrier spacing}
-	\mathSymb{\S_i}{Spectrum of the \(i\)\nth sub-carrier.}
+	\mathSymb{S_i}{Spectrum of the \(i\)\nth sub-carrier.}
 \end{mathDef}
 From this expression, \gls{PAPR} of an OFDM signal can be derived as:
 \[
@@ -60,7 +60,7 @@ It is the statistical averaging of instantaneous SNR over the probability distri
 
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsection{Outage Probability}
-When the \gls{SNR} level at the receiver falls below a certain threshold value, the system is said to be in outage. Accurate detection may not be possible below such a threshold, resulting in reception of many bits in error, rendering the system unreliable\cite{MIMO}.
+When the \gls{SNR} level at the receiver \emph{falls below a certain threshold value}, the system is said to be in outage. Accurate detection may not be possible below such a threshold, resulting in reception of many bits in error, rendering the system unreliable\cite{MIMO}.
 
 \emph{Outage probability} is defined as the probability that instantaneous SNR falls below a certain specified threshold:
 \[
@@ -77,7 +77,7 @@ Outage probability is the cumulative distribution function of SNR.
 \subsubsection{System Complexity}
 Refers to the circuit implementation and the technical difficulty associated with the system. This usually reflects upon the cost of manufacturing which is a key consideration when selecting a communication system.
 
-For most communication systems, the demodulator is usually more complex than the modulator, with coherent modulators being more complex because of its need for carrier recovery. Implementation of sophisticated algorithms adds to the system complexity.
+For most communication systems, the demodulator is usually more complex than the modulator, with coherent modulators being more complex because of their need for carrier recovery. Implementation of sophisticated algorithms adds to the system complexity.
 %.;,.;,.;,.;,.;,.;,.;,.;,.;,.;,
 \subsubsection{Computational Complexity}
 Computational complexity is a measure of the number of communication bits that the participants of a communication system need to exchange to perform certain tasks.
