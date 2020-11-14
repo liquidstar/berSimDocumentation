@@ -7,3 +7,12 @@
 %.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
 \section{PAPR Performance}
 
+The \gls{PAPR} was determined according to the definition stated in the literature review: the relation between maximum sample power in an OFDM symbol divided by the symbol's average power. For consistency, individual symbols' PAPRs were averaged to get each variant's equivalent value.
+
+The values obtained are:
+\begin{itemize}
+	\item \emph{IEEE 802.11 } standard OFDM implementation: \SI{7.25}{\decibel}
+	\item \emph{OFDM Variant} \SI{7.35}{\decibel}
+\end{itemize}
+
+The increase in average \gls{PAPR} from the standard OFDM implementation to the variant is expected since there are more data sub-carriers in the variant. This means that more signalling energy is expended in transmitting a symbol.
