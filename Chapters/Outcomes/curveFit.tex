@@ -7,55 +7,69 @@
 %.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
 \section{Curve Fitting}
 
-
-
-The equation for AWGN Curve fitting is:
+\subsection{Gaussian Channel Model}
+The equation representing BER for the project's OFDM variant in a Gaussian channel is:
 \begin{align*}
-	\begin{split}
-y=f(x) = 0.0005046x^9 &+ 0.02122x^8 -0.02507x^7 - 0.1269x^6 + 0.1545x^5\\ &+ 0.2027x^4 - 0.3122x^3 + 0.049 x^2 - 0.004642
-\end{split}
+	y = f(x) &=
+	\begin{cases}
+		0.47Q \left(\frac{x - 7.5}{2.5}\right) & -\infty \leq x \leq 9.5 \\
+		0.15Q \left(\frac{x - 10.5}{1.17}\right) & 9.5 < x \leq 15 \\
+		0 & \text{otherwise}
+	\end{cases}
 \end{align*}
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[scale=0.6]{Graphics/Methodology/GaussCurveFit.pdf}
+    \caption{AWGN Channel curve fitting}
+    \label{fig:gaussCurveFit}
+\end{figure}
+\pagebreak
+
+\subsection{Rayleigh Channel Model}
+The equation representing BER for the project's OFDM variant in a Rayleigh fading channel is:
+\begin{align*}
+	y = f(x) &=
+	\begin{cases}
+		0.5Q \left(\frac{x - 11.1}{3.05}\right) & -\infty \leq x \leq 17 \\
+		1_E4Q \left(\frac{x - 35}{11}\right) & \text{otherwise} \\
+		0 & \text{otherwise}
+	\end{cases}
+\end{align*}
+\begin{figure}[htpb!]
+    \centering
+    \includegraphics[scale=0.6]{Graphics/Methodology/RaylCurveFit.pdf}
+    \caption{Rayleigh Channel Curve Fitting}
+	\label{fig:raylCurveFit}
+\end{figure}
+\pagebreak
+
+\subsection{Rician Channel Model}
+The equation representing BER for the project's OFDM variant in a Rician fading channel is:
+\begin{align}
+	\label{res:RiceFn}
+	y = f(x) &=
+	\begin{cases}
+		0.5 & -\infty < x \leq 0 \\
+		aQ \left(\frac{x - b}{c}\right) & 0 < x \\
+	\end{cases}
+\end{align}
 \begin{mathDef}
-	\mathSymb{x}{SNR value in dB.}
-	\mathSymb{y}{BER}
+	\mathSymb{x}{\gls{SNR}}
+	\mathSymb{a}{\[\begin{cases}0.004K^2 - 0.0081K + 0.4392 & 0 \leq K < 5 \\ 0.4 & 5 \leq K\end{cases}\]}
+	\mathSymb{b}{-0.2895K + 11.222}
+	\mathSymb{c}{-0.0917K + 2.785}
 \end{mathDef}
- 
+The range of \(K\) for which equation \eqref{res:RiceFn} is valid is:
+\[
+	0 \leq K \leq 10.5
+\]
 \begin{figure}[htpb!]
-	\centerline{\resizebox{!}{0.5\textheight}{\includegraphics{Graphics/Results/AWGN.pdf}}}
-	\caption{AWGN Curve Fitting}
-	\label{fig:awgn_fit}
+    \centering
+    \includegraphics[scale=0.56]{Graphics/Methodology/RiceCurveFit.pdf}
+    \caption{Rician Channel Curve Fitting}
+	\label{fig:riceCurveFit}
 \end{figure}
 
-\pagebreak
-
-
-The equation for Rayleigh Curve fitting is:
-\begin{align*}
-\begin{split}
-y=f(x) = 0.01108x^9 &- 0.01629x^8 - 0.07991x^7 + 0.123x^6 + 0.1912x^5\\& - 0.3401x^4 - 0.1262x^3 + 0.4212x^2 - 0.2217x + 0.03777
-\end{split}
-\end{align*}
-
-\begin{figure}[htpb!]
-	\centerline{\resizebox{!}{0.45\textheight}{\includegraphics{Graphics/Results/Rayleigh.pdf}}}
-	\caption{Rayleigh Curve Fitting}
-	\label{fig:rayleigh_fit}
-\end{figure}
-
-\pagebreak
-
-The equation for Rician Curve fitting is:
-\begin{align*}
-\begin{split}
-	y=f(x) = 0.00643x^9 &+ 0.01816x^8 - 0.06692x^7 - 0.1026x^6 + 0.2525x^5\\& + 0.1372x^4 - 0.3881x^3 + 0.1103x^2 + 0.03639x - 0.006899
-\end{split}
-\end{align*}
-
-\begin{figure}[htpb!]
-	\centerline{\resizebox{!}{0.45\textheight}{\includegraphics{Graphics/Results/Rician.pdf}}}
-	\caption{Rician Curve Fitting}
-	\label{fig:rician_fit}
-\end{figure}
 
 \pagebreak
 
