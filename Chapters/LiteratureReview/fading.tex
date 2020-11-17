@@ -165,6 +165,37 @@ The figure below shows the Rician distribution density for various \(K\) at fixe
 When \(A=0\) and therefore \(K=-\infty\), implying the absence of a specular component, the Rician distribution becomes a Rayleigh distribution.
 
 %,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.
+\subsection{Q function}
+The Gaussian \(Q\) function, or, equivalently, the error function \(\text{erf}(\cdot)\) is the tail distribution function of the standard normal distribution. \(Q(z)\) is defined as the probability that a normal random variable will obtain a value which is larger than \(z\) standard deviations\cite{qfuncber}.
+The \(Q\) function is tabulated, and often made available as a built in function in mathematical software tools, for example as \texttt{qfunc(x)} in MATLAB.
+
+The Gaussian process is the underlying model for an AWGN channel and its \gls{PDF} is given by:
+\[
+	p(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\]
+\begin{mathDef}
+	\mathSymb{\mu}{Population mean}
+\end{mathDef}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.3]{Graphics/LiteratureReview/Qfunc.png}
+	\caption{Gaussian PDF and Q function}
+\end{figure}
+The shaded region is evaluated as:
+\[
+	P(X \geq x_0) = \int_{x_0}^\infty \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\]
+Substituting \(y = \frac{x - \mu}{\sigma}\), this can be re-written as:
+\[
+	P \left( y > \frac{x_0 - \mu}{\sigma}\right) = \int_{\frac{x_0 - \mu}{\sigma}}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}dy
+\]
+The right-hand-side integral is termed as the \(Q\) function\cite{statistics}, given by:
+\[
+	Q(z) = \int_{\frac{x_0 - \mu}{\sigma}}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}dy
+\]
+Thus the \(Q\) function gives the area of shaded part of the curve with the transformation \(y = \frac{x - \mu}{\sigma}\) applied to the Gaussian \gls{PDF}.
+
+%,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.,-.
 \subsection{Digital Modulation in slow, flat fading channels}
 A signal undergoes multiplicative variation in a flat fading channel. This means that both amplitude and phase are affected since the multiplying coefficient is a complex one. In the worst case, amplitude attenuation and phase shift may be considered constant over a symbol duration. For a transmitted low-pass signal \(\tilde{s}(t)\), the received low-pass complex signal may be written as:
 \[
