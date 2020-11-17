@@ -1,7 +1,13 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% - - M E T H O D O L O G Y - - %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+ %__       __ ________ ________ __    __  ______  _______   ______  __        ______   ______  __      __ 
+%|  \     /  \        \        \  \  |  \/      \|       \ /      \|  \      /      \ /      \|  \    /  \
+%| ▓▓\   /  ▓▓ ▓▓▓▓▓▓▓▓\▓▓▓▓▓▓▓▓ ▓▓  | ▓▓  ▓▓▓▓▓▓\ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\ ▓▓     |  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\\▓▓\  /  ▓▓
+%| ▓▓▓\ /  ▓▓▓ ▓▓__      | ▓▓  | ▓▓__| ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓     | ▓▓  | ▓▓ ▓▓ __\▓▓ \▓▓\/  ▓▓ 
+%| ▓▓▓▓\  ▓▓▓▓ ▓▓  \     | ▓▓  | ▓▓    ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓     | ▓▓  | ▓▓ ▓▓|    \  \▓▓  ▓▓  
+%| ▓▓\▓▓ ▓▓ ▓▓ ▓▓▓▓▓     | ▓▓  | ▓▓▓▓▓▓▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓     | ▓▓  | ▓▓ ▓▓ \▓▓▓▓   \▓▓▓▓   
+%| ▓▓ \▓▓▓| ▓▓ ▓▓_____   | ▓▓  | ▓▓  | ▓▓ ▓▓__/ ▓▓ ▓▓__/ ▓▓ ▓▓__/ ▓▓ ▓▓_____| ▓▓__/ ▓▓ ▓▓__| ▓▓   | ▓▓    
+%| ▓▓  \▓ | ▓▓ ▓▓     \  | ▓▓  | ▓▓  | ▓▓\▓▓    ▓▓ ▓▓    ▓▓\▓▓    ▓▓ ▓▓     \\▓▓    ▓▓\▓▓    ▓▓   | ▓▓    
+ %\▓▓      \▓▓\▓▓▓▓▓▓▓▓   \▓▓   \▓▓   \▓▓ \▓▓▓▓▓▓ \▓▓▓▓▓▓▓  \▓▓▓▓▓▓ \▓▓▓▓▓▓▓▓ \▓▓▓▓▓▓  \▓▓▓▓▓▓     \▓▓    
+%.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
 \chapter{Methodology}
 The project with be executed in the following sequence:
 \begin{enumerate}[label=\roman*.]
@@ -13,6 +19,7 @@ The project with be executed in the following sequence:
 	\item Use MATLAB's regression tools to derive an expression for the \gls{BER} curves generated.
 \end{enumerate}
 
+%,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;
 \section{OFDM Simulation}
 The communication system will be modeled in MATLAB's Simulink for ease of visualization and implementation. The blocks in the diagrams that follow have analogs in \gls{simulink}'s Communication toolbox library.
 \subsection{OFDM Transmitter}
@@ -82,7 +89,8 @@ The receiver:
 
 \pagebreak
 
-\section{BER Evaluation}
+%,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;
+\subsection{BER Evaluation}
 The system's \gls{BER} performance is to be evaluated within \gls{simulink} as well. The equivalent implementation would be as in figure \ref{fig:ber_blk_meth}
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/BER_BLK.pdf_tex}}}
@@ -90,10 +98,33 @@ The system's \gls{BER} performance is to be evaluated within \gls{simulink} as w
 	\label{fig:ber_blk_meth}
 \end{figure}
 
+%,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;
 \section{PAPR Evaluation}
 \gls{PAPR} is evaluated at the transmitter output. To achieve this measurement, the peak amplitude is sampled over several symbol durations then its square divided by the square of the average signal amplitude.
-\begin{figure}[htpb!]
+\begin{figure}[!h]
 	\centerline{\resizebox{10cm}{!}{\input{Graphics/Methodology/PAPR_BLK.pdf_tex}}}
 	\caption{\gls{PAPR} Evaluation}
 	\label{fig:papr_blk_meth}
+\end{figure}
+\pagebreak
+%,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;
+\section{Curve fitting}
+
+To determine the expressions for  the resulting BER curves from the system's simulation, \(Q\) function curves are fitted onto a line of best fit from the resulting BER data points:
+\subsection{Gaussian Channel Model}
+
+\begin{figure}[htpb!]
+	\centering
+	\includegraphics[scale=0.7]{Graphics/Methodology/GaussCurveFit.pdf}
+	\caption{AWGN Channel curve fitting}
+	\label{fig:gaussCurveFit}
+\end{figure}
+\pagebreak
+
+\subsection{Rayleigh Channel Model}
+\begin{figure}[htpb!]
+	\centering
+	\includegraphics[scale=0.7]{Graphics/Methodology/RaylCurveFit.pdf}
+	\caption{Rayleigh Channel Curve Fitting}
+	\label{fig:gaussCurveFit}
 \end{figure}
