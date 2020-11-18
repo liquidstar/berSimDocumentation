@@ -8,13 +8,19 @@
 \chapter{Results}
 
 An OFDM-based system was modeled according to the IEEE 802.11 standard. \emph{One million} simulated bits were used to evaluate the system. A derivative variant was designated from the standard, having the following properties:
-\begin{itemize}
-	\item \emph{60} data sub-carriers.
-	\item \emph{4} pilot sub-carriers.
-	\item \emph{16} virtual sub-carriers.
-	\item Cyclic extension of \emph{25\%} of symbol length.
-	\item Guard interval of \emph{25\%}
-\end{itemize}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{l r r}
+		& \emph{IEEE 802.11} & \emph{Project Variant} \\
+		\hline
+		\textsl{Data sub-carriers} & 48 & 60 \\
+		\textsl{Pilot sub-carriers} & 4 & 4 \\
+		\textsl{Virtual subcarriers} & 12 & 16 \\
+		\textsl{Cyclic extension} & 25\% & 25\% \\
+		\textsl{Guard Interval} & 25\% & 25\% \\
+	\end{tabular}
+	\caption{Standard OFDM vs the Project Variant}
+\end{table}
 
 IEEE 802.11 standard sub-carrier arrangement.
     \begin{center}

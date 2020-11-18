@@ -111,3 +111,52 @@ The system's \gls{BER} performance is to be evaluated within \gls{simulink} as w
 \section{Curve fitting}
 
 To determine the expressions for  the resulting BER curves from the system's simulation, \(Q\) function curves are fitted onto a line of best fit from the resulting BER data points:
+%`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,
+\subsection{Rayleigh and Gaussian Models Curve Fitting}
+From empirical observation over multiple simulation instances, see figure \ref{res:fig:Kvariation}, it was determined that the positions of the Gaussian and Rayleigh \gls{BER} curves are constant. To fit them to a curve, the \(Q\) function was scaled and shifted until it aligned perfectly with the curve. For higher \gls{SNR}s, a different Q function applied for both models.
+
+%`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,`;,
+\subsection{Rician Model Curve Fitting}
+Obtaining a general expression for Rician fading followed these steps:
+\begin{itemize}
+	\item The system was simulated with Rician fading model over values of \(K\) ranging from 0 to 10 in increments of 1, as in figure \ref{res:fig:Kvariation}.
+	\item For each curve, a scaled and shifted \(Q\) function was fitted. See figure \ref{fig:riceCurveFit}.
+		\[
+			y(x) = aQ\left(\frac{x - b}{c}\right)
+		\]
+		\begin{mathDef}
+			\mathSymb{a}{\(y\) axis scaling}
+			\mathSymb{b}{\(x\) axis shift}
+			\mathSymb{c}{\(x\) axis scaling}
+		\end{mathDef}
+	\item The values obtained are:
+		\begin{center}
+			\begin{tabular}{r r r r}
+				\(K\)~dB & \(a\) & \(b\) & \(c\) \\
+				\hline
+				10 & 0.4 & 8.5 & 1.9 \\
+				9 & 0.4 & 8.7 & 1.95 \\
+				8 & 0.4 & 8.9 & 2 \\
+				7 & 0.4 & 9.1 & 2.1 \\
+				6 & 0.41 & 9.4 & 2.2 \\
+				5 & 0.41 & 9.8 & 2.35 \\
+				4 & 0.41 & 10.1 & 2.53 \\
+				3 & 0.42 & 10.5 & 2.55 \\
+				2 & 0.425 & 10.8 & 2.6 \\
+				1 & 0.43 & 11 & 2.69 \\
+				0 & 0.44 & 11.1 & 2.72
+			\end{tabular}
+		\end{center}
+	\item These values are then plotted as in figure \ref{fig:findKcoeff} and fitted to a curve which relates their value to \(K\). This yields the expressions:
+		\begin{align*}
+			a &= \begin{cases}0.0004K^2 - 0.0081K + 0.4392 & 0 \leq K < 5\\0.4 & 5 \leq K\end{cases}\\
+			b &= -0.2855K + 11.522\\
+			c &= -0.0917K + 2.785
+		\end{align*}
+\end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Graphics/Methodology/KcoeffFit.pdf}
+	\caption{Relation between \(K\) and \(a\), \(b\), \(c\)}
+	\label{fig:findKcoeff}
+\end{figure}
