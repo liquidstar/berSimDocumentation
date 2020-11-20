@@ -9,9 +9,9 @@
  %\▓▓      \▓▓\▓▓▓▓▓▓▓▓   \▓▓   \▓▓   \▓▓ \▓▓▓▓▓▓ \▓▓▓▓▓▓▓  \▓▓▓▓▓▓ \▓▓▓▓▓▓▓▓ \▓▓▓▓▓▓  \▓▓▓▓▓▓     \▓▓    
 %.:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:..:.
 \chapter{Methodology}
-The project with be executed in the following sequence:
+The project was to be executed in the following sequence:
 \begin{enumerate}[label=\roman*.]
-	\item Simulate standard \gls{OFDM} on MATLAB over an \gls{AWGN} channel.
+	\item Simulate IEEE 802.11 standard \gls{OFDM} on MATLAB over an \gls{AWGN} channel.
 	\item Obtain average \gls{PAPR} performance of the simulated system.
 	\item Simulate the \gls{OFDM} system over a Rayleigh fading channel.
 	\item Simulate the \gls{OFDM} system over a Rician fading channel.
@@ -21,17 +21,17 @@ The project with be executed in the following sequence:
 
 %,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;,;
 \section{OFDM Simulation}
-The communication system will be modeled in MATLAB's Simulink for ease of visualization and implementation. The blocks in the diagrams that follow have analogs in \gls{simulink}'s Communication toolbox library.
+The communication system was to be modeled in MATLAB. The blocks in the diagrams that follow would have analogous objects programmed to represent them.
 \subsection{OFDM Transmitter}
 The transmitter:
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_T_BLK.pdf_tex}}}
-	\caption{OFDM Transmitter Block Diagram Implementation}
+	\caption{OFDM Transmitter Block Diagram}
 	\label{fig:ofdm_t_meth}
 \end{figure}
 \begin{figure}[htpb!]
 	\centerline{\resizebox{!}{0.935\textheight}{\includegraphics{Graphics/Methodology/Transmitter_flowchart.pdf}}}
-	\caption{System Transmitter Flowchart Algorithm}
+	\caption{Transmitter Flowchart}
 	\label{fig:system_transmitter}
 \end{figure}
 
@@ -67,7 +67,7 @@ The Rician fading channel has multipath components as with the Rayleigh fading c
 
 \begin{figure}[htpb!]
 	\centerline{\resizebox{!}{0.935\textheight}{\includegraphics{Graphics/Methodology/Channel_flowchart.pdf}}}
-	\caption{System Channel Flowchart Algorithm}
+	\caption{Channel Flowchart}
 	\label{fig:ofdm_channel_meth}
 \end{figure}
 \pagebreak
@@ -77,12 +77,12 @@ The Rician fading channel has multipath components as with the Rayleigh fading c
 The receiver:
 \begin{figure}[htpb!]
 	\centerline{\resizebox{15cm}{!}{\input{Graphics/Methodology/OFDM_R_BLK.pdf_tex}}}
-	\caption{OFDM Receiver Block Diagram Implementation}
+	\caption{Receiver Block Diagram}
 	\label{fig:ofdm_r_meth}
 \end{figure}
 \begin{figure}[htpb!]
 	\centerline{\resizebox{!}{0.935\textheight}{\includegraphics{Graphics/Methodology/Receiver_flowchart.pdf}}}
-	\caption{System Receiver Flowchart Algorithm}
+	\caption{Receiver Flowchart}
 	\label{fig:ofdm_receiver_meth}
 \end{figure}
 
@@ -121,9 +121,9 @@ Obtaining a general expression for Rician fading followed these steps:
 \begin{itemize}
 	\item The system was simulated with Rician fading model over values of \(K\) ranging from 0 to 10 in increments of 1, as in figure \ref{res:fig:Kvariation}.
 	\item For each curve, a scaled and shifted \(Q\) function was fitted. See figure \ref{fig:riceCurveFit}.
-		\[
+		\begin{equation}
 			y(x) = aQ\left(\frac{x - b}{c}\right)
-		\]
+		\end{equation}
 		\begin{mathDef}
 			\mathSymb{a}{\(y\) axis scaling}
 			\mathSymb{b}{\(x\) axis shift}
@@ -148,15 +148,15 @@ Obtaining a general expression for Rician fading followed these steps:
 			\end{tabular}
 		\end{center}
 	\item These values are then plotted as in figure \ref{fig:findKcoeff} and fitted to a curve which relates their value to \(K\). This yields the expressions:
-		\begin{align*}
-			a &= \begin{cases}0.0004K^2 - 0.0081K + 0.4392 & 0 \leq K < 5\\0.4 & 5 \leq K\end{cases}\\
-			b &= -0.2855K + 11.522\\
-			c &= -0.0917K + 2.785
-		\end{align*}
+		\begin{align}
+			a &= \begin{cases}0.0004K^2 - 0.0081K + 0.4392 & 0 \leq K < 5\\0.4 & 5 \leq K\end{cases}\label{eq:meth:a}\\
+			b &= -0.2855K + 11.522\label{eq:meth:b}\\
+			c &= -0.0917K + 2.785 \label{eq:meth:c}
+		\end{align}
 \end{itemize}
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{Graphics/Methodology/KcoeffFit.pdf}
-	\caption{Relation between \(K\) and \(a\), \(b\), \(c\)}
+	\caption{Relation of \(a\), \(b\) and \(c\) to \(K\)}
 	\label{fig:findKcoeff}
 \end{figure}

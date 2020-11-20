@@ -22,17 +22,17 @@ The problem of \gls{PAPR} is nost acutely felt at the transmitter output where t
 	\item The power amplifier must remain linear over an amplitude range that includes peak amplitudes.
 \end{itemize}
 According to \cite{papr_paper}, for an OFDM system with \(N\) sub-carriers, the baseband with normalized power from an IFFT operation is:
-\[
+\begin{equation}
 	s(t) = \frac{1}{\sqrt{N}} \sum_{i=0}^{N-1} S_i e^{jk\Delta ft}
-\]
+\end{equation}
 \begin{mathDef}
 	\mathSymb{\Delta f}{Sub-carrier spacing}
 	\mathSymb{S_i}{Spectrum of the \(i\)\nth sub-carrier.}
 \end{mathDef}
 From this expression, \gls{PAPR} of an OFDM signal can be derived as:
-\[
+\begin{equation}
 	\text{PAPR} = \frac{\left( |x(t)|^2 \right)_\text{max}}{E\left\{ |x(t)|^2 \right\}}
-\]
+\end{equation}
 \begin{mathDef}
 	\mathSymb{E\{\cdot\}}{Average}
 \end{mathDef}
@@ -49,9 +49,9 @@ According to \cite{AWGN}, the primary causes of error performance degradation ar
 \item Electrical noise and interference produced by a variety of sources such as \emph{atmospheric noise, switching transients} and \emph{intermodulation noise}.
 \end{itemize}
 \emph{Average \gls{SNR}} is the most appropriate measure in a communication system subject to fading.
-\[
+\begin{equation}
 	\bar{\gamma} \triangleq \int_0^\infty \gamma P_\gamma (\gamma) d\gamma
-\]
+\end{equation}
 \begin{mathDef}
 	\mathSymb{\gamma}{Instantaneous \gls{SNR}}
 	\mathSymb{P_\gamma(\gamma)}{Probability density function of \(\gamma\).}
@@ -63,9 +63,9 @@ It is the statistical averaging of instantaneous SNR over the probability distri
 When the \gls{SNR} level at the receiver \emph{falls below a certain threshold value}, the system is said to be in outage. Accurate detection may not be possible below such a threshold, resulting in reception of many bits in error, rendering the system unreliable\cite{MIMO}.
 
 \emph{Outage probability} is defined as the probability that instantaneous SNR falls below a certain specified threshold:
-\[
+\begin{equation}
 	P_{\text{out}} = \int_0^{\gamma_{\text{th}}} P_\gamma (\gamma) d\gamma
-\]
+\end{equation}
 \begin{mathDef}
 	\mathSymb{\gamma_\text{th}}{SNR threshold}
 \end{mathDef}
@@ -97,25 +97,25 @@ The value \(L_f\) points to possible algorithmic improvements.
 This is the probability that the reconstructed symbol at the receiver output differs from the transmitted binary symbol. This measure is the most revealing about a system's reliability. It most prominently features in all system performance evaluations\cite{hayk}.
 
 The conditional bit error probability of a system is a non-linear function of instantaneous \gls{SNR}. The nature of this non-linearity is a function of the modulation and detection scheme being used\cite{dcommoha}. Suppose that conditional bit error probability is:
-\[
+\begin{equation}
 	P_b(E|\gamma) = C_1 \exp(a_1\gamma)
-\]
+\end{equation}
 \begin{mathDef}
 	\mathSymb{C_1,a_1}{Constants}
 \end{mathDef}
 This would be the case for coherent detection of \gls{PSK}. The average bit error probability can be written as:
-\begin{align*}
+\begin{align}
 	P_b(E|\gamma) &\triangleq \int_0^\infty P_b(E|\gamma)P_\gamma d\gamma \\
-				  &= \int_0^\infty C_1 \exp (-a_1 \gamma)P_\gamma d\gamma
-\end{align*}
+				  &= \int_0^\infty C_1 \exp (-a_1 \gamma)P_\gamma d\gamma \nonumber
+\end{align}
 %If there is a symbol error, the most probable number of bit errors is one. With \(\log_2 M\) bits per symbol, average bit error probability is related to \gls{BER} by:
-%\begin{align*}
+%\begin{align}
 	%\text{BER} &= \frac{2^{k-1}}{2^k - 1}P_b & k \in 
-%\end{align*}
+%\end{align}
 The bit error rate of a communication system can be calculated for each \gls{SNR} value as:
-\[
+\begin{equation}
 	\text{BER} = \frac{\text{Number of error bits}}{\text{Number of transmit bits}}
-\]
+\end{equation}
 
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsection{Symbol Rate}
@@ -127,9 +127,9 @@ For a communication system where \(M\) symbols are used, \(k = \log_2 M\) bits g
 %~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~~^~
 \subsection{Spectral Efficiency}
 It is also called bandwidth efficiency and is defined by \cite{hayk}:
-\[
+\begin{equation}
 	\rho = \frac{R_b}{B}
-\]
+\end{equation}
 \begin{mathDef}
 	\mathSymb{\rho}{Spectral Efficiency}
 	\mathSymb{R_b}{Bit Rate}

@@ -24,11 +24,12 @@ Some important \gls{OFDM} system parameters are:
 	\item The number of sub-carriers.
 	\item Symbol duration, hence sub-carrier spacing.
 \end{itemize}
-Both parameters are commensurate with the performance and complexity of the \gls{OFDM} system\cite{wireless_design}. In designing an \gls{OFDM} system, coherence bandwidth \(B_c\) is to be considered:
-\[
+Both parameters are commensurate with the performance and complexity of the \gls{OFDM} system\cite{wireless_design}. In designing an \gls{OFDM} system, coherence bandwidth is to be considered:
+\begin{equation}
 	B_c > \frac{1}{T_s}
-\]
+\end{equation}
 \begin{mathDef}
+	\mathSymb{B_c}{Coherence Bandwidth}
 	\mathSymb{T_s}{Symbol Duration}
 \end{mathDef}
 Under this condition, the OFDM signal only suffers from slow, flat fading.
